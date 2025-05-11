@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Hub</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Courier New", monospace;
+        background-color: #f0f9f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Header */
+      header {
+        padding: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: #ffffff;
+        color: #4a90e2;
+        box-shadow: 0px 4px 10px rgba(0, 195, 255, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 5px solid #4a90e2;
+      }
+
+      /* Navigation Links */
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-item {
+        font-size: 18px;
+        font-weight: bold;
+        color: #4a90e2;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .nav-item:hover {
+        color: #357abd;
+      }
+
+      /* Course Grid */
+      .course-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        flex-grow: 1;
+      }
+
+      /* Course Card */
+      .course-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+        padding-bottom: 15px;
+        height: 100%;
+        transition: transform 0.3s ease;
+        max-height: 350px;
+      }
+
+      .course-card:hover {
+        transform: scale(1.05);
+        background-color: #e8f4fd;
+        box-shadow: 0 15px 35px rgba(0, 195, 255, 0.5);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .course-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+        background-color: #fff;
+      }
+
+      .course-info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .course-card h3 {
+        margin: 10px 0 5px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #4a90e2;
+      }
+
+      .course-card p {
+        font-size: 14px;
+        opacity: 0.8;
+        color: #333;
+        margin: 0;
+        padding: 0 10px;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 20px;
+        font-size: 14px;
+        background-color: #ffffff;
+        color: #4a90e2;
+        text-align: center;
+        border-top: 5px solid #4a90e2;
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-links">
+        <div class="nav-item" onclick="goHome()">Home</div>
+        <div class="nav-item" onclick="goBooks()">Books</div>
+      </div>
+      <div>📚 Learning Hub</div>
+      <div></div>
+    </header>
+
+    <div class="course-container">
+       <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Courses/15 Days of SQL The Complete SQL Masterclass 2023/course.html')"
+      >
+        <img src="./assets/15 days sql.jpg" alt="Course 6" />
+        <div class="course-info">
+          <h3>15 Days of SQL The Complete SQL Masterclass</h3>
+          <p>
+            Master SQL in just 15 days from Basics to Pro by working daily on
+            real-life projects
+          </p>
+        </div>
+      </div>
+
+
+      <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Courses/Become a Data Analyst Excel, SQL & Tableau - 3-in-1 Bundle/course.html')"
+      >
+        <img src="./assets/data analytics.jpg" alt="Course 6" />
+        <div class="course-info">
+          <h3>Become a Data Analyst: Excel, SQL & Tableau – 3-in-1 Bundle</h3>
+          <p>
+            Boost Your Career with Data Analytics: Learn Excel, SQL & Tableau for Advanced Business Insights & Competitive Advantage.
+          </p>
+        </div>
+      </div>
+      <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Courses/The Linux Command Line Bootcamp Beginner To Power User/course.html')"
+      >
+        <img src="./assets/linuxPower.jpg" alt="Course 5" />
+        <div class="course-info">
+          <h3>The Linux Command Line Bootcamp: Beginner To Power User.</h3>
+          <p>
+            Level Up Your Skills And Take Control Of Your Machine, w/ Dozens of
+            Commands, Projects, and Challenges!.
+          </p>
+        </div>
+      </div>
+      <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Courses/Java Abdul/course.html')"
+      >
+        <img src="./assets/java.jpg" alt="Course 1" />
+        <div class="course-info">
+          <h3>Learn JAVA Programming - Beginner to Master</h3>
+          <p>
+            The course consists of JAVA features, Java SE Concept of programming are made simple and easy.
+            By the end of the course you will understand Java extremely well and will be able to build your own Java applications.
+          </p>
+        </div>
+      </div>
+      <div
+      class="course-card"
+      onclick="openCourse('Volumes/GauravSSD/Courses/Learn C++ Programming -Beginner to Advance- Deep Dive in C++/course.html')"
+    >
+      <img src="./assets/c++core.jpg" alt="Course 2" />
+      <div class="course-info">
+        <h3>Learn C++ Programming -Beginner to Advance- Deep Dive in C++</h3>
+        <p>
+          Classroom and Hands-on sessions- Features of C++ 11 , Exception
+          Handling and STL – for Both Academics and Industry.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="course-card"
+      onclick="openCourse('Volumes/GauravSSD/Courses/Mastering Data Structures & Algorithms using C and C++/course.html')"
+    >
+      <img src="./assets/DSA.jpg" alt="Course 4" />
+      <div class="course-info">
+        <h3>Mastering Data Structures & Algorithms using C and C++</h3>
+        <p>
+          Learn, Analyse and Implement Data Structure using C and C++. Learn
+          Recursion and Sorting.
+        </p>
+      </div>
+    </div>
+      <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Courses/Linux Mastery Master the Linux Command Line in 11.5 Hours/course.html')"
+      >
+        <img src="./assets/linux.jpg" alt="Course 1" />
+        <div class="course-info">
+          <h3>Linux Mastery: Master the Linux Command Line in 11.5 Hours</h3>
+          <p>
+            Learn the Linux Command Line from Scratch and Improve your Career
+            with the World’s Most Fun Project-Based Linux Course!
+          </p>
+        </div>
+      </div>
+      <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Courses/The Complete Networking Fundamentals Course. Your CCNA start/course.html')"
+      >
+        <img src="./assets/ccna.jpg" alt="Course 2" />
+        <div class="course-info">
+          <h3>The Complete Networking Fundamentals Course. Your CCNA start</h3>
+          <p>
+            Learn about networking and start your journey to Cisco 200-301
+            Certification. Bestseller.
+          </p>
+        </div>
+      </div>
+
+     
+
+      
+    
+      
+      
+
+      <!-- <div
+        class="course-card"
+        onclick="openCourse('Volumes/GauravSSD/Gagan Pratap Maths/maths.html')"
+      >
+        <img src="./assets/maths.jpg" alt="Course 7" />
+        <div class="course-info">
+          <h3>Mathematics</h3>
+          <p>Learn Maths with Gagan Pratap.</p>
+        </div>
+      </div>
+    </div> -->
+    
+
+    <!-- <div class="footer">© 2025 Learning Hub</div> -->
+
+    <script>
+
+      // course if in same internal storage//
+
+
+
+      // function openCourse(coursePage) {
+      //   fetch(coursePage, { method: "HEAD" }) // Check if file exists
+      //     .then((response) => {
+      //       if (response.ok) {
+      //         window.location.href = coursePage.replace(/\\/g, "/"); // Navigate to the course page
+      //       } else {
+      //         throw new Error("File not found");
+      //       }
+      //     })
+      //     .catch(() => {
+      //       alert("Course not found. Redirecting to Home.");
+      //       window.location.href = "mainpage.html"; // Redirect to home page if file is missing
+      //     });
+      // }
+
+      //// course if in external Drives
+
+      // function openCourse(coursePage) {
+      //   window.location.href = coursePage.replace(/\\/g, "/"); // Use relative path
+      // }
+
+      function openCourse(coursePage) {
+        let ssdPath = "file:///" + coursePage.replace(/\\/g, "/");
+
+        fetch(ssdPath, { method: "HEAD" })
+          .then((response) => {
+            if (response.ok) {
+              window.location.href = ssdPath;
+            } else {
+              throw new Error("Course not found");
+            }
+          })
+          .catch(() => {
+            alert("Course not found. Redirecting to Home.");
+            window.location.href = "mainpage.html";
+          });
+      }
+
+
+
+
+
+
+
+
+      function goHome() {
+        window.location.href = "mainpage.html";
+      }
+      function goBooks() {
+  let booksPath = "file:///Volumes/GauravSSD/Courses/BOOKS/first.html";
+
+  fetch(booksPath, { method: "HEAD" })
+    .then((response) => {
+      if (response.ok) {
+        window.location.href = booksPath;
+      } else {
+        throw new Error("Books not found");
+      }
+    })
+    .catch(() => {
+      alert("UPSC Books not found. Redirecting to Home.");
+      window.location.href = "mainpage.html";
+    });
+}
+
+    </script>
+  </body>
+</html>
